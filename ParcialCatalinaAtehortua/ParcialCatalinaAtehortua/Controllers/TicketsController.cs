@@ -27,6 +27,7 @@ namespace ParcialCatalinaAtehortua.Controllers
             return Ok(ticket);
         }
 
+
         [HttpPost, ActionName("Create")]
         [Route("CreateTicket")]
         public async Task<ActionResult> CreateTicket(Ticket ticket)
@@ -51,9 +52,10 @@ namespace ParcialCatalinaAtehortua.Controllers
         {
             try
             {
-                if (ticketId != ticket.Id) return NotFound("Ticket not found");
+                if (ticketId != ticket.Id) return NotFound("Boleta no válida");
 
                 ticket.UseDate = DateTime.Now;
+                ticket.IsUsed = true;
 
                 _context.Tickets.Update(ticket);
                 await _context.SaveChangesAsync();

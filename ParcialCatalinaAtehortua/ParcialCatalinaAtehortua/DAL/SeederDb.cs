@@ -20,12 +20,12 @@ namespace ParcialCatalinaAtehortua.DAL
         {
             if (!_context.Tickets.Any())
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 50000; i++)
                 {
                     _context.Tickets.Add(new Ticket
                     {
                         Id = new Guid(),
-                        EntranceGate = null,
+                        EntranceGate = "null",
                         IsUsed = false,
                         UseDate = null
                     });
